@@ -5,8 +5,8 @@ Created on Tue Jul 30 10:03:38 2019
 @author: Nano
 """
 
-"pandas paketiyle ilgili çalışmalar.
-"pandas serilerinin oluşturulması
+#pandas paketiyle ilgili çalışmalar.
+#pandas serilerinin oluşturulması
 import pandas as pd
 pandas_seri = pd.Series([5,7,3,10,8,6])
 pandas_seri
@@ -14,7 +14,7 @@ type(pandas_seri)
 pandas_seri = pd.Series([5,7,3,10,8,6], index = ['a','b','c','d','e','f'])
 pandas_seri['c':'e']
 
-"pandas veri çerçevelerinin oluşturulması
+#pandas veri çerçevelerinin oluşturulması
 iris_dict = {
         'Sepal_Length' : [5.1,4.9,4.7,4.6,5.0,6.7,6.3,6.5,6.2,5.9],
         'Sepal_Width' : [3.5,3.0,3.2,3.1,3.6,3.0,2.5,3.0,3.4,3.0],
