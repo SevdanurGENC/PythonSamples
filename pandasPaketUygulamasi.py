@@ -104,13 +104,79 @@ veri = np.reshape(veri,(6,8))
 hisseler = pd.DataFrame(veri, index=indeks, columns=sutunlar)
 hisseler
 
+#dataframede seçim yapma
+import pandas as pd
+iris = pd.read_csv("C:/Users/Nano/Documents/pytDers/DataSets/iris.csv")
+type(iris)
+iris["sepal.length"]
+print(iris)
+type(iris["sepal.length"])
+iris[["sepal.length","sepal.width"]]
+iris[2:5]
 
+hisseler.loc["ABC"]
+hisseler.loc[["ABC"]]
+hisseler.loc[["ABC","KLM"]]
+hisseler.loc['Hacim Kapanış']['ABC']
+hisseler.iloc[[1]]
+hisseler.iloc[5,0]
+hisseler.iloc[[1,2,3]]
+hisseler.loc[["ABC","KLM"]]
+hisseler.loc[["KLM":"ABC":-1]]
 
+#pandas ile veri analizi
+import seaborn as sns
+iris = sns.load_dataset('iris')
+iris.head()
+iris.describe()
+iris['species'].describe()
+iris['species'].unique()
+iris.count()
+iris[['petal_length','petal_width']]
+veriler = ['petal_length','petal_width']
+veriler
+iris[veriler].count()
+iris.std()
+iris.quantile(0.25)
+iris.quantile([0.25,0.75])
+iris['petal_length'].min()
+iris['petal_width'].max()
+iris.mean(axis='columns')
+iris.std(axis='columns')
 
+kosul = iris['species'] == 'versicolor'
+type(kosul)
+kosul
+versicolor = iris.loc[kosul,:]
+versicolor.head()
+versicolor.describe()
+iris[iris['species'] == 'virginica'].describe()
 
+import pandas as pd
+iris = pd.read_csv("C:/Users/Nano/Documents/pytDers/DataSets/iris.csv")
+kosul = iris['species'].str.contains('setosa')
+iris.head()
+setosa = iris[kosul]
+print(setosa.head())
+iris[iris.sepal_length>7.5]
+iris[(iris.sepal_length>6.5) & (iris.petal_length<4.5)]
+iris[(iris.sepal_length>7.5) | (iris.petal_length>6.5)]
+iris.petal_length[iris.sepal_length>7.5]
 
+import pandas as pd
+import numpy as np
+degisken = np.repeat(['A','B','C','D'],[3,3,3,3],axis = 0)
+deger = np.random.random(12)
+df_dict = {'degisken':degisken, 'deger':deger}
+df = pd.DataFrame(df_dict)
+df = df[['degisken','deger']]
+print(df)
+df2 = df.pivot(columns = 'degisken', values = 'deger')
+print(df2)
+df3 = df2.melt(value_vars=['A','B','C','D'],value_name='deger').dropna()
+print(df3)
 
-
-
+d1 = [('Ali','Baran','Mehmet',97,85,76), column = 2, rows=3]
+d1.columns('X','Y1')
 
 
